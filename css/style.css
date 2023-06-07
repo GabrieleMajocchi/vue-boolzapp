@@ -108,6 +108,7 @@ p.time{
     font-size: 0.8rem;
 }
 
+
 .chat div{
     width: 300px;
     padding: 12px 15px;
@@ -134,8 +135,16 @@ p.time{
     right: 10px;
 }
 
-.activeuser{
+div.activeuser{
     cursor: pointer;
+}
+
+.contact-tab{
+    display: none;
+}
+
+.contact-tab.visible{
+    display: block;
 }
 
 .activeuser.active{

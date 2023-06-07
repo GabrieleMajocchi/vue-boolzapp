@@ -5,6 +5,7 @@ createApp ({
         return{
             // ---Variables---
             activeChat: 0,
+            search: '',
             // ---Contacts array start---
             contacts: [
                 {name: 'Michele',
@@ -151,6 +152,16 @@ createApp ({
             // ---Write the reply after 1000ms---
             setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: 'Ok', status: 'received'})}, 1000);
             this.newMsg = '';
+            }
+        },
+        // ---Function to search by name in the chat list---
+        searchChat(){
+            for(let i = 0; i < this.contacts.length; i++){
+                if(this.contacts[i].name.toLowerCase().includes(this.search.toLowerCase())){
+                    this.contacts[i].visible = true;
+                } else{
+                    this.contacts[i].visible = false;
+                }
             }
         },
     },

@@ -51,11 +51,11 @@
                     <!-- ---Searchbar--- -->
                     <div class="searchchat d-flex p-2">
                         <i class="fa-solid fa-magnifying-glass m-0 border"></i>
-                        <input type="text" class="border border-start-0" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" class="border border-start-0" placeholder="Cerca o inizia una nuova chat" v-model="search" @keyup="searchChat()">
                     </div>
                     <!-- ---Chats--- -->
                     <!-- ---Create chats that can be clicked to be selected, based on the array--- -->
-                    <div v-for="(chat, index) in contacts" class="border-top">
+                    <div v-for="(chat, index) in contacts" class="contact-tab border-top" :class="chat.visible === true ? 'visible' : ''">
                         <div class="activeuser d-flex justify-content-between" @click="showChat(index)" :class="index == activeChat ? 'active' : ''">
                             <div class="d-flex">
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
