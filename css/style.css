@@ -1,0 +1,134 @@
+/* ---General class--- */
+.my-bg-grey{
+    background-color: #eaeaea;
+}
+
+body{
+    background: linear-gradient(180deg, #009688 15%, #d9dbd2 15%);
+    height: 100vh;
+}
+
+#app{
+    width: 80vw;
+    height: 95vh;
+    background-color: white;
+}
+
+.br{
+    border: 1px solid black;
+}
+
+.leftsection, .rightsection{
+    height: 95vh;
+}
+
+.profile, .userchat, .sendtext{
+    height: 8%;
+}
+
+.getnotify{
+    height: 9%;
+    background-color: #8edafc;
+}
+
+.chats{
+    height: 83%;
+}
+
+.chat{
+    height: 84%;
+    background-image: url('../img/mine.jpg');
+}
+
+.avatar{
+    border-radius: 50%;
+    height: 55px;
+    aspect-ratio: 1;
+    margin: 0.6rem;
+}
+
+i{
+    font-size: 25px;
+    color: #b1b1b1;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.bell{
+    background-color: white;
+    border-radius: 50%;
+    height: 55px;
+    aspect-ratio: 1;
+    margin: 1rem;
+}
+
+i.fa-bell-slash{
+    color: #8edafc;
+}
+
+.notification{
+    font-size: 0.9rem;
+    text-decoration: underline;
+}
+
+.sendtext{
+    background-color: #f3eeea;
+}
+
+i.fa-microphone, i.fa-face-smile{
+    color: #6b7275;
+}
+
+.sendtext input{
+    background-color: white;
+    width: 100%;
+    border: none;
+    padding: 15px;
+}
+
+.searchchat{
+    background-color: #fafafa;
+}
+.searchchat input{
+    background-color: white;
+    width: 100%;
+    border: none;
+    font-size: 15px;
+}
+
+.searchchat i{
+    background-color: white;
+    font-size: 15px;
+    padding: 0 15px;
+}
+
+p.time{
+    font-size: 0.8rem;
+}
+
+.chat div{
+    height: 50px;
+    width: 300px;
+    padding: 12px 15px;
+    margin: 10px 100px;
+    border-radius: 10px;
+    background-color: #8edafc;
+    position: relative;
+}
+
+.chat .sent{
+    background-color: #d5f9ba;
+    align-self: end;
+}
+
+.chat .received{
+    background-color: #ffffff;
+    align-self: start;
+}
+
+.msgtime{
+    position: absolute;
+    font-size: 10px;
+    bottom: 5px;
+    right: 10px;
+}

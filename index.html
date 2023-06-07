@@ -16,12 +16,100 @@
     <script src="js/myscript.js" defer></script>
 
 </head>
-<body>
+<body class="d-flex">
     <!-- ---CDN of Vue-3--- -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
-    <div id="app">
-    
+    <div id="app" class="m-auto container-fluid">
+        <div class="row">
+            <!-- ---Left part with user profile, search bar and chats--- -->
+            <div class="leftsection col-4 d-flex flex-column p-0">
+                <!-- ---User profile section--- -->
+                <div class="profile my-bg-grey d-flex justify-content-between border-end">
+                    <div>
+                        <img src="img/avatar_io.jpg" alt="" class="avatar">
+                        <h5 class="d-inline">Sofia</h5>
+                    </div>
+                    <div class="my-auto me-3">
+                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-message"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- ---Activate/deactivate notificatio section--- -->
+                <div class="getnotify d-flex">
+                    <div class="bell d-flex">
+                        <i class="fa-solid fa-bell-slash m-auto"></i>
+                    </div>
+                    <div class="my-auto">
+                        <p class="m-0 fw-semibold">Ricevi notifiche di nuovi messaggi</p>
+                        <p class="notification m-0">Attiva notifiche desktop</p>
+                    </div>
+                </div>
+                <!-- ---Chats and search chat section--- -->
+                <div class="chats overflow-auto d-flex flex-column">
+                    <!-- ---Searchbar--- -->
+                    <div class="searchchat d-flex m-2 border rounded">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" class="rounded" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                    <!-- ---Chats--- -->
+                    <div v-for="">
+                        <div class="activeuser d-flex justify-content-between">
+                            <div class="d-flex">
+                                <img src="img/avatar_1.jpg" alt="" class="avatar mx-4">
+                                <div class="activeuserinfo">
+                                    <h5 class="m-0">Michele</h5>
+                                    <p class="m-0 text-secondary text-opacity-50">Ultimo messaggio inviato</p>
+                                </div>
+                            </div>
+                            <p class="time text-secondary text-opacity-50 me-3">12:00</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ---Right part with selected user chat, chat and send text--- -->
+            <div class="rightsection col-8 d-flex flex-column p-0">
+                <!-- ---Active user chat section--- -->
+                <div class="userchat my-bg-grey d-flex justify-content-between border-start">
+                    <div class="activeuser d-flex">
+                        <img src="img/avatar_1.jpg" alt="" class="avatar">
+                        <div class="activeuserinfo my-auto">
+                            <h5 class="m-0">Michele</h5>
+                            <p class="m-0">Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                    </div>
+                    <div class="rightuser my-auto me-3">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </div>
+                <!-- ---Chat with messages section--- -->
+                <div class="chat d-flex flex-column">
+                    <div class="sent">
+                        <span>Hai portato a spasso il cane?</span>
+                        <span class="msgtime text-secondary text-opacity-50">15:30</span>
+                    </div>
+                    <div class="sent">
+                        <span>Ricordati di stendere i panni</span>
+                        <span class="msgtime text-secondary text-opacity-50">15:50</span>
+                    </div>
+                    <div class="received">
+                        <span>Tutto fatto!</span>
+                        <span class="msgtime text-secondary text-opacity-50">16:15</span>
+                    </div>
+                </div>
+                <!-- ---Send text and emoji section--- -->
+                <div class="sendtext d-flex justify-content-between">
+                    <i class="fa-regular fa-face-smile my-auto mx-5"></i>
+                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio">
+                    <i class="fa-solid fa-microphone my-auto mx-5"></i>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>
