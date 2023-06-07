@@ -89,7 +89,7 @@
                     </div>
                 </div>
                 <!-- ---Chat with messages section--- -->
-                <div class="chat d-flex flex-column">
+                <div class="chat d-flex flex-column overflow-auto">
                     <!-- ---Create every message based on the active chat array content--- -->
                     <div v-for="message in contacts[activeChat].messages" :class="message.status">
                         <span>{{message.message}}</span>
@@ -99,7 +99,7 @@
                 <!-- ---Send text and emoji section--- -->
                 <div class="sendtext d-flex justify-content-between">
                     <i class="fa-regular fa-face-smile my-auto mx-5"></i>
-                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio">
+                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="addMsg(newMsg, activeChat)">
                     <i class="fa-solid fa-microphone my-auto mx-5"></i>
                 </div>
             </div>

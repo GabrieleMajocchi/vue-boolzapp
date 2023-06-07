@@ -5,7 +5,6 @@ createApp ({
         return{
             // ---Variables---
             activeChat: 0,
-
             // ---Contacts array start---
             contacts: [
                 {name: 'Michele',
@@ -139,6 +138,20 @@ createApp ({
             const minutes = timeParts[1];
             const result = hours + ':' + minutes;
             return result;
+        },
+        // ---Function to send the message that user wrote in the chat, will also write a reply---
+        addMsg(msg, showedchat){
+            if(msg ===  undefined || msg === ''){
+            // ---Does nothing in case there is no text---
+            }else{
+            let currentdate = new Date();
+            // ---Write the date in the same form as the array---
+            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+currentdate.getHours()+':'+currentdate.getMinutes()+':'+currentdate.getSeconds();
+            this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
+            // ---Write the reply after 1000ms---
+            setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: 'Ok', status: 'received'})}, 1000);
+            this.newMsg = '';
+            }
         },
     },
 }).mount ("#app")
