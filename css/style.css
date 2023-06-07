@@ -109,7 +109,6 @@ p.time{
 }
 
 .chat div{
-    height: 50px;
     width: 300px;
     padding: 12px 15px;
     margin: 10px 100px;
@@ -133,4 +132,12 @@ p.time{
     font-size: 10px;
     bottom: 5px;
     right: 10px;
+}
+
+.activeuser{
+    cursor: pointer;
+}
+
+.activeuser.active{
+    background-color: #e9ebeb;
 }

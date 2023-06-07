@@ -54,8 +54,9 @@
                         <input type="text" class="border border-start-0" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <!-- ---Chats--- -->
-                    <div v-for="chat in contacts" class="border-top">
-                        <div class="activeuser d-flex justify-content-between">
+                    <!-- ---Create chats that can be clicked to be selected, based on the array--- -->
+                    <div v-for="(chat, index) in contacts" class="border-top">
+                        <div class="activeuser d-flex justify-content-between" @click="showChat(index)" :class="index == activeChat ? 'active' : ''">
                             <div class="d-flex">
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
                                 <div class="activeuserinfo mt-1">
@@ -63,7 +64,7 @@
                                     <p class="m-0 text-secondary text-opacity-50">Ultimo messaggio inviato</p>
                                 </div>
                             </div>
-                            <p class="time text-secondary text-opacity-50 me-3">12:00</p>
+                            <p class="time text-secondary text-opacity-50 me-3 mt-1">12:00</p>
                         </div>
                     </div>
 
@@ -89,17 +90,10 @@
                 </div>
                 <!-- ---Chat with messages section--- -->
                 <div class="chat d-flex flex-column">
-                    <div class="sent">
-                        <span>Hai portato a spasso il cane?</span>
-                        <span class="msgtime text-secondary text-opacity-50">15:30</span>
-                    </div>
-                    <div class="sent">
-                        <span>Ricordati di stendere i panni</span>
-                        <span class="msgtime text-secondary text-opacity-50">15:50</span>
-                    </div>
-                    <div class="received">
-                        <span>Tutto fatto!</span>
-                        <span class="msgtime text-secondary text-opacity-50">16:15</span>
+                    <!-- ---Create every message based on the active chat array content--- -->
+                    <div v-for="message in contacts[activeChat].messages" :class="message.status">
+                        <span>{{message.message}}</span>
+                        <span class="msgtime text-secondary text-opacity-50">{{whatTime(message.date)}}</span>
                     </div>
                 </div>
                 <!-- ---Send text and emoji section--- -->

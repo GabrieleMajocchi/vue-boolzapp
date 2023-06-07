@@ -3,6 +3,9 @@ const {createApp} = Vue
 createApp ({
     data () {
         return{
+            // ---Variables---
+            activeChat: 0,
+
             // ---Contacts array start---
             contacts: [
                 {name: 'Michele',
@@ -123,6 +126,19 @@ createApp ({
     },
 
     methods: {
-        
+        // ---Function to activate the clicked chat---
+        showChat(index){
+            this.activeChat = index;
+        },
+        // ---Function to get hours and minute from the full date in the array---
+        whatTime(date){
+            const dateTimeParts = date.split(' ');
+            const timePart = dateTimeParts[1];
+            const timeParts = timePart.split(':');
+            const hours = timeParts[0];
+            const minutes = timeParts[1];
+            const result = hours + ':' + minutes;
+            return result;
+        },
     },
 }).mount ("#app")
