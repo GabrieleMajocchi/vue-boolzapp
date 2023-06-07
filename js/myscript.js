@@ -147,7 +147,7 @@ createApp ({
             }else{
             let currentdate = new Date();
             // ---Write the date in the same form as the array---
-            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+currentdate.getHours()+':'+currentdate.getMinutes()+':'+currentdate.getSeconds();
+            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
             this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
             // ---Write the reply after 1000ms---
             setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: 'Ok', status: 'received'})}, 1000);
@@ -164,5 +164,10 @@ createApp ({
                 }
             }
         },
+        // ---Function to delete the message---
+        deleteMsg(msg){
+            const messageIndex = this.contacts[this.activeChat].messages.indexOf(msg);
+            this.contacts[this.activeChat].messages.splice(messageIndex, 1);
+        }
     },
 }).mount ("#app")

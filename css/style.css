@@ -150,3 +150,22 @@ div.activeuser{
 .activeuser.active{
     background-color: #e9ebeb;
 }
+
+.activeuser p{
+    font-size: 0.8rem;
+}
+
+.chat i{
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    display: none;
+}
+
+.chat div:hover i{
+    display: block;
+}
+
+.chat i::after{
+    content: none;
+}
