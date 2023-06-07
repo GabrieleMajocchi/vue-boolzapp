@@ -54,12 +54,12 @@
                         <input type="text" class="rounded" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <!-- ---Chats--- -->
-                    <div v-for="">
+                    <div v-for="chat in contacts" class="border-top">
                         <div class="activeuser d-flex justify-content-between">
                             <div class="d-flex">
-                                <img src="img/avatar_1.jpg" alt="" class="avatar mx-4">
+                                <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
                                 <div class="activeuserinfo">
-                                    <h5 class="m-0">Michele</h5>
+                                    <h5 class="m-0">{{chat.name}}</h5>
                                     <p class="m-0 text-secondary text-opacity-50">Ultimo messaggio inviato</p>
                                 </div>
                             </div>
