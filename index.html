@@ -49,16 +49,16 @@
                 <!-- ---Chats and search chat section--- -->
                 <div class="chats overflow-auto d-flex flex-column">
                     <!-- ---Searchbar--- -->
-                    <div class="searchchat d-flex m-2 border rounded">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" class="rounded" placeholder="Cerca o inizia una nuova chat">
+                    <div class="searchchat d-flex p-2">
+                        <i class="fa-solid fa-magnifying-glass m-0 border"></i>
+                        <input type="text" class="border border-start-0" placeholder="Cerca o inizia una nuova chat">
                     </div>
                     <!-- ---Chats--- -->
                     <div v-for="chat in contacts" class="border-top">
                         <div class="activeuser d-flex justify-content-between">
                             <div class="d-flex">
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
-                                <div class="activeuserinfo">
+                                <div class="activeuserinfo mt-1">
                                     <h5 class="m-0">{{chat.name}}</h5>
                                     <p class="m-0 text-secondary text-opacity-50">Ultimo messaggio inviato</p>
                                 </div>
