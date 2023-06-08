@@ -78,10 +78,10 @@
                 <!-- ---Active user chat section--- -->
                 <div class="userchat my-bg-grey d-flex justify-content-between border-start">
                     <div class="activeuser d-flex">
-                        <img src="img/avatar_1.jpg" alt="" class="avatar">
+                        <img :src="contacts[activeChat].avatar" alt="" class="avatar">
                         <div class="activeuserinfo my-auto">
-                            <h5 class="m-0">Michele</h5>
-                            <p class="m-0">Ultimo accesso oggi alle 12:00</p>
+                            <h5 class="m-0">{{contacts[activeChat].name}}</h5>
+                            <p class="m-0">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
                         </div>
                     </div>
                     <div class="rightuser my-auto me-3">
