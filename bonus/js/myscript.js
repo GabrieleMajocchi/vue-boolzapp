@@ -193,6 +193,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
             this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
             this.newMsg = '';
+            const whoistexting = this.contacts[showedchat].name;
             const API_URL = "https://api.openai.com/v1/chat/completions";
             const API_KEY = this.key;
             const MODEL = "gpt-3.5-turbo";
@@ -209,7 +210,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                     messages: [
                         {
                             role:"user",
-                            content: `${msg} Stando in 200 caratteri massimo`
+                            content: `Rispondi al messaggio: ${msg}. Come se fossi ${whoistexting}, un amico/a storico di chi sta scrivendo la domanda. La risposta dev'essere di massimo 200 caratteri`,
                         }
                     ],
                     temperature: temperature,
