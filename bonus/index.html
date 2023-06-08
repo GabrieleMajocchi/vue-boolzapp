@@ -106,7 +106,8 @@
                 <!-- ---Send text and emoji section--- -->
                 <div class="sendtext d-flex justify-content-between">
                     <i class="fa-regular fa-face-smile my-auto mx-5"></i>
-                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)">
+                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)" @keyup="sendButton(newMsg)">
+                    <i class="fa-solid fa-paper-plane my-auto mx-5" @click="answerAI(newMsg, activeChat)"></i>
                     <i class="fa-solid fa-microphone my-auto mx-5"></i>
                 </div>
             </div>

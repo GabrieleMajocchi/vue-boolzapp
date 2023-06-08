@@ -192,7 +192,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // ---Write the date in the same form as the array---
             currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
             this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
+            const microphone = document.querySelector('.fa-microphone');
+            const send = document.querySelector('.fa-paper-plane');
+            microphone.classList.remove('deactive');
+            send.classList.remove('active');
             this.newMsg = '';
+
             const whoistexting = this.contacts[showedchat].name;
             const API_URL = "https://api.openai.com/v1/chat/completions";
             const API_KEY = this.key;
@@ -210,7 +215,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                     messages: [
                         {
                             role:"user",
-                            content: `Rispondi al messaggio: ${msg}. Come se fossi ${whoistexting}, un amico/a storico di chi sta scrivendo la domanda. La risposta dev'essere di massimo 200 caratteri`,
+                            content: `Rispondi al messaggio: ${msg}. Come se fossi ${whoistexting}, un amico/a di chi sta scrivendo la domanda. La risposta dev'essere di massimo 200 caratteri`,
                         }
                     ],
                     temperature: temperature,
@@ -228,8 +233,18 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             this.contacts[showedchat].messages.push({date: currentdate, message: chatResponse, status: 'received'});
             }
         }},
+        // ---Function to show the send button after there is some written text---
+        sendButton(msg){
+            const microphone = document.querySelector('.fa-microphone');
+            const send = document.querySelector('.fa-paper-plane');
+            if(msg.length >= 1){
+                microphone.classList.add('deactive');
+                send.classList.add('active');
+            }else{
+                microphone.classList.remove('deactive');
+                send.classList.remove('active');
+            }
+        },
         
     },
 }).mount ("#app")
-
-

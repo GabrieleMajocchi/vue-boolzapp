@@ -75,9 +75,17 @@ i.fa-bell-slash{
     background-color: #f3eeea;
 }
 
-i.fa-microphone, i.fa-face-smile{
+i.fa-microphone, i.fa-face-smile, i.fa-paper-plane{
     color: #6b7275;
     font-size: 30px;
+}
+
+i.fa-paper-plane, i.deactive{
+    display: none;
+}
+
+i.active{
+    display: block;
 }
 
 .sendtext input{
