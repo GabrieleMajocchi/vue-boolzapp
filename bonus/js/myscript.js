@@ -13,6 +13,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             activeChat: 0,
             search: '',
             blank: true,
+            timedLoader: '',
 
             // ---Contacts array start---
             contacts: [
@@ -268,5 +269,8 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // }
         },
 
+        loader(){
+            setTimeout(()=>{this.timedLoader = 'd-none'}, 1000);
+        },
     },
 }).mount ("#app")

@@ -21,8 +21,11 @@
 <body class="d-flex">
     <!-- ---CDN of Vue-3--- -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+    
     <div id="app" class="m-auto container-fluid">
+        <div class="loader" :class="timedLoader">{{loader()}}
+            <div class="animation"></div>
+        </div>
         <div class="row">
             <!-- ---Left part with user profile, search bar and chats--- -->
             <div class="leftsection col-4 d-flex flex-column p-0">
