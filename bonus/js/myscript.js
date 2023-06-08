@@ -3,6 +3,7 @@ const {createApp} = Vue
 createApp ({
     data () {
         return{
+
             // ---Variables---
             key: prompt(`Scrivi la tua Key per poter accedere al servizio di openai per  ricevere risposte ai messaggi mandati.
 
@@ -11,6 +12,7 @@ Per ricevere la tua key, vai su https://platform.openai.com/docs/quickstart/buil
 Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale funzionamento della web app.`),
             activeChat: 0,
             search: '',
+
             // ---Contacts array start---
             contacts: [
                 {name: 'Michele',
@@ -131,10 +133,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
     },
 
     methods: {
+
         // ---Function to activate the clicked chat---
         showChat(index){
             this.activeChat = index;
         },
+
         // ---Function to get hours and minute from the full date in the array---
         whatTime(date){
             const dateTimeParts = date.split(' ');
@@ -145,6 +149,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             const result = hours + ':' + minutes;
             return result;
         },
+
         // ---Function to send the message that user wrote in the chat, will also write a reply---
         addMsg(msg, showedchat){
             if(msg ===  undefined || msg === ''){
@@ -159,6 +164,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             this.newMsg = '';
             }
         },
+
         // ---Function to search by name in the chat list---
         searchChat(){
             for(let i = 0; i < this.contacts.length; i++){
@@ -169,11 +175,13 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                 }
             }
         },
+
         // ---Function to delete the message---
         deleteMsg(msg){
             const messageIndex = this.contacts[this.activeChat].messages.indexOf(msg);
             this.contacts[this.activeChat].messages.splice(messageIndex, 1);
         },
+
         // ---Gpt3.5 AI message response to our message---
         async answerAI(msg, showedchat){
         if(msg ===  undefined || msg === ''){
@@ -201,10 +209,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                     messages: [
                         {
                             role:"user",
-                            content: `${this.newMsg}`
+                            content: `${msg} Stando in 200 caratteri massimo`
                         }
                     ],
-                    temperature: temperature
+                    temperature: temperature,
+                    // ---Maximum token reply, longer = more words, shorter = less words---
+                    max_tokens: 200,
                 }),
             });
             const data = await response.json();
@@ -217,6 +227,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             this.contacts[showedchat].messages.push({date: currentdate, message: chatResponse, status: 'received'});
             }
         }},
+        
     },
 }).mount ("#app")
 
