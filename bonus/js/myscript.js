@@ -184,8 +184,8 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
 
         // ---Gpt3.5 AI message response to our message---
         async answerAI(msg, showedchat){
-        if(msg ===  undefined || msg === ''){
-            // ---Does nothing in case there is no text---
+        if(msg ===  undefined || msg === '' || (!msg.replace(/\s/g, '').length)){
+            // ---Does nothing in case there is no text or in case there is only spaces---
         }else{
             console.log('Elaboro una risposta..');
             let currentdate = new Date();
