@@ -226,13 +226,14 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             const data = await response.json();
             if(data.choices === undefined){
                 console.log(`La tua key non è valida/corretta. Openai non è in grado di generare una risposta al tuo messaggio. Verrà data la risposta standard`);
-                setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: 'Ok', status: 'received'})}, 1000);
+                setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: this.randomReply(), status: 'received'})}, 1000);
             }else{
             const chatResponse = data.choices[0].message.content;
             console.log(chatResponse)
             this.contacts[showedchat].messages.push({date: currentdate, message: chatResponse, status: 'received'});
             }
         }},
+
         // ---Function to show the send button after there is some written text---
         sendButton(msg){
             const microphone = document.querySelector('.fa-microphone');
@@ -245,6 +246,13 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                 send.classList.remove('active');
             }
         },
-        
+
+        // ---Get a random response---
+        randomReply(){
+            const reply = ['Ok', 'Tutto bene tu?', 'Non mi ricordo chi sei, ci conosciamo?', 'Sto guidando, ti rispondo dopo', 'Ho il telefono che sta morendo, chiamami', 'Ciao', 'Concordo'];
+            const randomNum = Math.floor(Math.random() * reply.length) + 1;
+            const answer = reply[randomNum];
+            return answer
+        },
     },
 }).mount ("#app")
