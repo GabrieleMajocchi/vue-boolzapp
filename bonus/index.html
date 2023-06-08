@@ -58,7 +58,7 @@
                     <!-- ---Chats--- -->
                     <!-- ---Create chats that can be clicked to be selected, based on the array--- -->
                     <div v-for="(chat, index) in contacts" class="contact-tab border-top" :class="chat.visible === true ? 'visible' : ''">
-                        <div class="activeuser d-flex justify-content-between" @click="showChat(index)" :class="index == activeChat ? 'active' : ''">
+                        <div class="activeuser d-flex justify-content-between" @click="showChat(index), blank = false" :class="index == activeChat ? 'active' : ''">
                             <div class="d-flex">
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
                                 <div class="activeuserinfo mt-1">
@@ -75,6 +75,7 @@
 
             <!-- ---Right part with selected user chat, chat and send text--- -->
             <div class="rightsection col-8 d-flex flex-column p-0">
+                <div class="blank-chat" :class="blank === true ? '' : 'd-none'"></div>
                 <!-- ---Active user chat section--- -->
                 <div class="userchat my-bg-grey d-flex justify-content-between border-start">
                     <div class="activeuser d-flex">
@@ -87,7 +88,11 @@
                     <div class="rightuser my-auto me-3">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical dropdown-toggle" type="button" data-bs-toggle="dropdown"></i>
+                        <ul class="dropdown-menu dropdown-menu-end py-0">
+                            <li><a class="dropdown-item" href="#" @click="deleteMessages()">Elimina messaggi</a></li>
+                            <li><a class="dropdown-item" href="#" @click="deleteChat()">Elimina chat</a></li>
+                        </ul>
                     </div>
                 </div>
                 <!-- ---Chat with messages section--- -->

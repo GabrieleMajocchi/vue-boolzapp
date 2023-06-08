@@ -12,6 +12,7 @@ Per ricevere la tua key, vai su https://platform.openai.com/docs/quickstart/buil
 Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale funzionamento della web app.`),
             activeChat: 0,
             search: '',
+            blank: true,
 
             // ---Contacts array start---
             contacts: [
@@ -254,5 +255,18 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             const answer = reply[randomNum];
             return answer
         },
+
+        // ---Function to delete the a whole chat---
+        deleteChat(){
+            // this.contacts[this.activeChat].splice(3, 1);
+        },
+
+        // ---Function to delete all the messages from chat---
+        deleteMessages(){
+            // for (let i = 0; i < this.contacts.length; i++) {
+            //     this.contacts[this.activeChat].messages.splice(i, 1);
+            // }
+        },
+
     },
 }).mount ("#app")
