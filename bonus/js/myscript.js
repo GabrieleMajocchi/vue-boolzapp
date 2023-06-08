@@ -194,12 +194,13 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // ---Write the date in the same form as the array---
             currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
             this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
+            const chatbox = document.querySelector('.chat');
+            chatbox.scrollTop = chatbox.scrollHeight;
             const microphone = document.querySelector('.fa-microphone');
             const send = document.querySelector('.fa-paper-plane');
             microphone.classList.remove('deactive');
             send.classList.remove('active');
             this.newMsg = '';
-
             const whoistexting = this.contacts[showedchat].name;
             const API_URL = "https://api.openai.com/v1/chat/completions";
             const API_KEY = this.key;
@@ -229,10 +230,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             if(data.choices === undefined){
                 console.log(`La tua key non è valida/corretta. Openai non è in grado di generare una risposta al tuo messaggio. Verrà data la risposta standard`);
                 setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: this.randomReply(), status: 'received'})}, 1000);
+                setTimeout(()=>{chatbox.scrollTop = chatbox.scrollHeight;}, 1000);
             }else{
             const chatResponse = data.choices[0].message.content;
             console.log(chatResponse)
             this.contacts[showedchat].messages.push({date: currentdate, message: chatResponse, status: 'received'});
+            chatbox.scrollTop = chatbox.scrollHeight;
             }
         }},
 
@@ -252,7 +255,8 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         // ---Get a random response---
         randomReply(){
             const reply = ['Ok', 'Tutto bene tu?', 'Non mi ricordo chi sei, ci conosciamo?', 'Sto guidando, ti rispondo dopo', 'Ho il telefono che sta morendo, chiamami', 'Ciao', 'Concordo'];
-            const randomNum = Math.floor(Math.random() * reply.length) + 1;
+            const randomNum = Math.floor(Math.random() * reply.length);
+            console.log(randomNum)
             const answer = reply[randomNum];
             return answer
         },
