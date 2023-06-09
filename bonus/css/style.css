@@ -51,13 +51,6 @@ input{
     color: var(--color-input);
 }
 
-
-input {
-    width: 0;
-    height: 0;
-    visibility: hidden;
-}
-
 .my-bg-grey{
     background-color: var(--color-bg-gr);
 }
