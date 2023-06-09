@@ -258,6 +258,10 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         // ---Function to delete the a whole chat---
         deleteChat(){
             this.contacts.splice(this.activeChat, 1);
+            this.blank = true;
+            if(this.activeChat == (this.contacts.length)){
+                this.activeChat = 0;
+            }
         },
 
         // ---Function to delete all the messages from chat---
