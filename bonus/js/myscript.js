@@ -98,7 +98,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                     message: 'Non ancora',
                     status: 'received'},
                     {date: '10/01/2020 15:51:00',
-                    message: 'Nessuna nuova, buona nuova',
+                    message: 'Okay, fammi sapere appena ci sono novità!',
                     status: 'sent'}
                     ],
                 },

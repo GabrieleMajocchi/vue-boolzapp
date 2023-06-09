@@ -74,21 +74,33 @@ body{
     height: 95vh;
 }
 
+.leftsection{
+    min-width: 350px;
+}
+
+.rightsection{
+    min-width: 550px;
+}
+
+.row{
+    flex-wrap: nowrap;
+}
+
 .profile, .userchat, .sendtext{
-    height: 8%;
+    height: 72px;
 }
 
 .getnotify{
-    height: 9%;
+    height: 87px;
     background-color: var(--color-bg-notify);
 }
 
 .chats{
-    height: 83%;
+    height: 100%;
 }
 
 .chat{
-    height: 84%;
+    height: 100%;
     background-image: var(--chat-url);
 }
 
@@ -195,6 +207,7 @@ i.active{
     width: 100%;
     border: none;
     padding: 15px;
+    height: 45px;
 }
 
 .searchchat{
