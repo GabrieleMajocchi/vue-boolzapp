@@ -7,7 +7,6 @@
     --color-grad-dark: #009688;
     --color-grad-light: #d9dbd2;
     --color-bg: #ffffff;
-    --color-border: #000000;
     --bs-border-color: #dee2e6;
     --color-bg-notify: #8edafc;
     --color-bg-notifyicon: #ffffff;
@@ -65,10 +64,6 @@ body{
     width: 80vw;
     height: 95vh;
     background-color: var(--color-bg);
-}
-
-.border-top{
-    border-top: var(--bs-border-color);
 }
 
 .br{
@@ -155,6 +150,10 @@ i{
     color: var(--color-icons);
     margin: 10px;
     cursor: pointer;
+}
+
+i.fa-comment-medical:hover{
+    color: #00a884;
 }
 
 .bell{

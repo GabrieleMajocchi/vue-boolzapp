@@ -154,19 +154,16 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         },
 
         // ---Function to send the message that user wrote in the chat, will also write a reply---
-        addMsg(msg, showedchat){
-            if(msg ===  undefined || msg === ''){
-            // ---Does nothing in case there is no text---
-            }else{
-            let currentdate = new Date();
-            // ---Write the date in the same form as the array---
-            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
-            this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
-            // ---Write the reply after 1000ms---
-            setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: 'Ok', status: 'received'})}, 1000);
-            this.newMsg = '';
-            }
-        },
+        // addMsg(msg, showedchat){
+        //     if(msg ===  undefined || msg === ''){
+        //     // ---Does nothing in case there is no text---
+        //     }else{
+        //     this.contacts[showedchat].messages.push({date: this.currentdate(), message: msg, status: 'sent'});
+        //     // ---Write the reply after 1000ms---
+        //     setTimeout(()=>{this.contacts[showedchat].messages.push({date: this.currentdate(), message: 'Ok', status: 'received'})}, 1000);
+        //     this.newMsg = '';
+        //     }
+        // },
 
         // ---Function to search by name in the chat list---
         searchChat(){
@@ -191,10 +188,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // ---Does nothing in case there is no text or in case there is only spaces---
         }else{
             console.log('Elaboro una risposta..');
-            let currentdate = new Date();
-            // ---Write the date in the same form as the array---
-            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds();
-            this.contacts[showedchat].messages.push({date: currentdate, message: msg, status: 'sent'});
+            this.contacts[showedchat].messages.push({date: this.currentdate(), message: msg, status: 'sent'});
             const chatbox = document.querySelector('.chat');
             chatbox.scrollTop = chatbox.scrollHeight;
             const microphone = document.querySelector('.fa-microphone');
@@ -230,12 +224,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             const data = await response.json();
             if(data.choices === undefined){
                 console.log(`La tua key non è valida/corretta. Openai non è in grado di generare una risposta al tuo messaggio. Verrà data la risposta standard`);
-                setTimeout(()=>{this.contacts[showedchat].messages.push({date: currentdate, message: this.randomReply(), status: 'received'})}, 1000);
+                setTimeout(()=>{this.contacts[showedchat].messages.push({date: this.currentdate(), message: this.randomReply(), status: 'received'})}, 1000);
                 setTimeout(()=>{chatbox.scrollTop = chatbox.scrollHeight;}, 1000);
             }else{
             const chatResponse = data.choices[0].message.content;
             console.log(chatResponse)
-            this.contacts[showedchat].messages.push({date: currentdate, message: chatResponse, status: 'received'});
+            this.contacts[showedchat].messages.push({date: this.currentdate(), message: chatResponse, status: 'received'});
             chatbox.scrollTop = chatbox.scrollHeight;
             }
         }},
@@ -292,6 +286,29 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                 document.documentElement.classList.add("light")
                 window.localStorage.setItem('mode', 'light');
             }
+        },
+
+        // ---Function to get the current date---
+        currentdate(){
+            let currentdate = new Date();
+            // ---Write the date in the same form as the array---
+            currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds()
+            return currentdate
+        },
+
+        // ---Function to add a new chat---
+        newChat(){
+            const newchatuser = prompt('A chi vuoi scrivere?')
+            const newchatmsg = prompt(`Scrivi un messaggio da inviare a ${newchatuser}`)
+            this.contacts.push({name: newchatuser,
+                                avatar: './img/avatar_new.jpg',
+                                visible: true,
+                                messages: [
+                                    {date: this.currentdate(),
+                                    message: newchatmsg,
+                                    status: 'sent'}
+                                ]});
+            this.contacts[(this.contacts.length - 1)].messages.push({date: this.currentdate(), message: this.randomReply(), status: 'received'});
         },
     },
 }).mount ("#app")
