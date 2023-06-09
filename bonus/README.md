@@ -36,7 +36,7 @@
 
 ## About The Project
 
-<img src="img/project.png" alt="Project picture" width="250" height="250">
+<img src="img/project.png" alt="Project picture" width="600" height="250">
 
 BoolzApp Web App, an amazing imitation of a webapp of a instant messaging service, where you'll be able to text with your friends, see their msg, swap chats, get reply and many more!
 
