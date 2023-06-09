@@ -76,7 +76,7 @@
                                     <p class="m-0 text-secondary text-opacity-50" v-if="checkarraysingle(index)">Ultimo messaggio: {{chat.messages[chat.messages.length - 1].message}}</p>
                                 </div>
                             </div>
-                            <p class="time text-secondary text-opacity-50 me-3 mt-1" v-if="checkarray()">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
+                            <p class="time text-secondary text-opacity-50 me-3 mt-1" v-if="checkarraysingle(index)">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
                         </div>
                     </div>
 
