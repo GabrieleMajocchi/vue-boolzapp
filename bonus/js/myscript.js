@@ -251,14 +251,13 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         randomReply(){
             const reply = ['Ok', 'Tutto bene tu?', 'Non mi ricordo chi sei, ci conosciamo?', 'Sto guidando, ti rispondo dopo', 'Ho il telefono che sta morendo, chiamami', 'Ciao', 'Concordo'];
             const randomNum = Math.floor(Math.random() * reply.length);
-            console.log(randomNum)
             const answer = reply[randomNum];
             return answer
         },
 
         // ---Function to delete the a whole chat---
         deleteChat(){
-            // this.contacts[this.activeChat].splice(3, 1);
+            this.contacts.splice(this.activeChat, 1);
         },
 
         // ---Function to delete all the messages from chat---
@@ -275,7 +274,6 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         // ---Function to toggle darkmode---
         darkmode(){
             this.isdark = !this.isdark;
-            console.log(this.isdark)
             if (this.isdark === true) {
                 document.documentElement.classList.remove("light")
                 document.documentElement.classList.add("dark")
@@ -298,16 +296,11 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         // ---Function to add a new chat---
         newChat(){
             const newchatuser = prompt('A chi vuoi scrivere?')
-            const newchatmsg = prompt(`Scrivi un messaggio da inviare a ${newchatuser}`)
             this.contacts.push({name: newchatuser,
                                 avatar: './img/avatar_new.jpg',
                                 visible: true,
                                 messages: [
-                                    {date: this.currentdate(),
-                                    message: newchatmsg,
-                                    status: 'sent'}
                                 ]});
-            this.contacts[(this.contacts.length - 1)].messages.push({date: this.currentdate(), message: this.randomReply(), status: 'received'});
             this.activeChat = this.contacts.length - 1;
             this.blank = false;
         },
