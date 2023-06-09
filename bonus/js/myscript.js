@@ -14,6 +14,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             search: '',
             blank: true,
             timedLoader: '',
+            isdark: false,
 
             // ---Contacts array start---
             contacts: [
@@ -273,8 +274,24 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // }
         },
 
+        // ---Function to show a loader for 1s when page is loaded---
         loader(){
             setTimeout(()=>{this.timedLoader = 'd-none'}, 1000);
+        },
+
+        // ---Function to toggle darkmode---
+        darkmode(){
+            this.isdark = !this.isdark;
+            console.log(this.isdark)
+            if (this.isdark === true) {
+                document.documentElement.classList.remove("light")
+                document.documentElement.classList.add("dark")
+                window.localStorage.setItem('mode', 'dark');
+            } else {
+                document.documentElement.classList.remove("dark")
+                document.documentElement.classList.add("light")
+                window.localStorage.setItem('mode', 'light');
+            }
         },
     },
 }).mount ("#app")

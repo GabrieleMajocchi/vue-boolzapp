@@ -1,21 +1,85 @@
 /* ---General class--- */
+:root,
+:root.light{
+    --color-textcolor: #000000;
+    --color-input: #000000;
+    --color-bg-gr: #eaeaea;
+    --color-grad-dark: #009688;
+    --color-grad-light: #d9dbd2;
+    --color-bg: #ffffff;
+    --color-border: #000000;
+    --bs-border-color: #dee2e6;
+    --color-bg-notify: #8edafc;
+    --color-bg-notifyicon: #ffffff;
+    --color-sendtext: #f3eeea;
+    --color-search: #fafafa;
+    --color-sent: #d5f9ba;
+    --color-received: #ffffff;
+    --color-active-user: #e9ebeb;
+    --color-icons: #b1b1b1;
+    --color-iconschat: #6b7275;
+    --chat-url: url('../img/mine.jpg');
+    --char-blank-url: url(../img/blank-chat.png);
+}
+
+:root.dark{
+    --color-textcolor: #ffffff;
+    --color-input: #ffffff;
+    --color-bg-gr: #202c33;
+    --color-grad-dark: #111b21;
+    --color-grad-light: #111b21;
+    --color-bg: #111b21;
+    --bs-border-color: #6b7275;
+    --color-bg-notify: #182229;
+    --color-bg-notifyicon: #00a884;
+    --color-sendtext: #2a3942;
+    --color-search: #202c33;
+    --color-sent: #005c4b;
+    --color-received: #202c33;
+    --color-active-user: #2a3942;
+    --color-icons: #aebac1;
+    --color-iconschat: #8696a0;
+    --chat-url: url('../img/minedark.jpg');
+    --char-blank-url: url(../img/blank-chatdark.png);
+}
+
+::placeholder{
+    color: var(--color-textcolor);
+}
+
+input{
+    color: var(--color-input);
+}
+
+
+input {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+
 .my-bg-grey{
-    background-color: #eaeaea;
+    background-color: var(--color-bg-gr);
 }
 
 body{
-    background: linear-gradient(180deg, #009688 15%, #d9dbd2 15%);
+    background: linear-gradient(180deg, var(--color-grad-dark) 15%, var(--color-grad-light) 15%);
     height: 100vh;
+    color: var(--color-textcolor);
 }
 
 #app{
     width: 80vw;
     height: 95vh;
-    background-color: white;
+    background-color: var(--color-bg);
+}
+
+.border-top{
+    border-top: var(--bs-border-color);
 }
 
 .br{
-    border: 1px solid black;
+    border: 1px solid var(--color-border);
 }
 
 .leftsection, .rightsection{
@@ -28,7 +92,7 @@ body{
 
 .getnotify{
     height: 9%;
-    background-color: #8edafc;
+    background-color: var(--color-bg-notify);
 }
 
 .chats{
@@ -37,7 +101,7 @@ body{
 
 .chat{
     height: 84%;
-    background-image: url('../img/mine.jpg');
+    background-image: var(--chat-url);
 }
 
 .avatar{
@@ -83,7 +147,7 @@ body{
 }
 
 .blank-chat{
-    background-image: url(../img/blank-chat.png);
+    background-image: var(--char-blank-url);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -95,13 +159,13 @@ body{
 
 i{
     font-size: 25px;
-    color: #b1b1b1;
+    color: var(--color-icons);
     margin: 10px;
     cursor: pointer;
 }
 
 .bell{
-    background-color: white;
+    background-color: var(--color-bg-notifyicon);
     border-radius: 50%;
     height: 55px;
     aspect-ratio: 1;
@@ -109,7 +173,7 @@ i{
 }
 
 i.fa-bell-slash{
-    color: #8edafc;
+    color: var(--color-bg-notify);
 }
 
 .notification{
@@ -118,11 +182,11 @@ i.fa-bell-slash{
 }
 
 .sendtext{
-    background-color: #f3eeea;
+    background-color: var(--color-sendtext);
 }
 
 i.fa-microphone, i.fa-face-smile, i.fa-paper-plane{
-    color: #6b7275;
+    color: var(--color-iconschat);
     font-size: 30px;
 }
 
@@ -135,17 +199,17 @@ i.active{
 }
 
 .sendtext input{
-    background-color: white;
+    background-color: var(--color-bg);
     width: 100%;
     border: none;
     padding: 15px;
 }
 
 .searchchat{
-    background-color: #fafafa;
+    background-color: var(--color-search);
 }
 .searchchat input{
-    background-color: white;
+    background-color: var(--color-bg);
     width: 100%;
     border: none;
     font-size: 15px;
@@ -153,7 +217,7 @@ i.active{
 }
 
 .searchchat i{
-    background-color: white;
+    background-color: var(--color-bg);
     font-size: 15px;
     padding: 10px 30px;
 }
@@ -168,17 +232,17 @@ p.time{
     padding: 12px 15px;
     margin: 10px 100px;
     border-radius: 10px;
-    background-color: #8edafc;
+    background-color: var(--color-bg-notify);
     position: relative;
 }
 
 .chat .sent{
-    background-color: #d5f9ba;
+    background-color: var(--color-sent);
     align-self: end;
 }
 
 .chat .received{
-    background-color: #ffffff;
+    background-color: var(--color-received);
     align-self: start;
 }
 
@@ -202,7 +266,7 @@ div.activeuser{
 }
 
 .activeuser.active{
-    background-color: #e9ebeb;
+    background-color: var(--color-active-user);
 }
 
 .activeuser p{
@@ -226,4 +290,67 @@ div.activeuser{
 
 .rightuser i::after{
     content: none;
+}
+
+
+/* ---Darkmode switch--- */
+label#dark-label {
+	width:50px;
+	height:25px;
+	position: relative;
+	display: block;
+	background: #ebebeb;
+	border-radius: 25px;
+	box-shadow: inset 0px 5px 15px rgba(0,0,0,0.4), inset 0px -5px 15px rgba(255,255,255,0.4);
+	cursor: pointer;
+	transition: 0.3s;
+    margin: -3px;
+}
+label#dark-label:after {
+	content: "";
+	width:18px;
+	height: 18px;
+	position: absolute;
+	top:4px;
+	left:4px;
+	background: linear-gradient(180deg,#005c4b,#00a884);
+	border-radius: 18px;
+	box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+	transition: 0.3s;
+}
+input#darkmode-toggle {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+input#darkmode-toggle:checked + label#dark-label {
+	background: #242424;
+}
+input#darkmode-toggle:checked + label#dark-label:after {
+	left:60px;
+	transform: translateX(-178%);
+	background: linear-gradient(180deg,#00a884,#d5f9ba);
+}
+label#dark-label:active:after{
+	width: 30px;
+}
+
+input#darkmode-toggle:checked + label#dark-label + .background {
+	background:#242424;
+}
+label#dark-label img {
+	position: absolute;
+	width: 14px;
+	top: 6px;
+	z-index: 1;
+}
+label#dark-label img.sun {
+	left:6px;
+	fill:#000;
+	transition: 0.3s;
+}
+label#dark-label img.moon {
+	left:30px;
+	fill:#7e7e7e;
+	transition: 0.3s;
 }
