@@ -91,7 +91,7 @@
                     <div class="activeuser d-flex">
                         <img :src="contacts[activeChat].avatar" alt="" class="avatar">
                         <div class="activeuserinfo my-auto">
-                            <h5 class="m-0" v-if="checkarray()">{{contacts[activeChat].name}}</h5>
+                            <h5 class="m-0">{{contacts[activeChat].name}}</h5>
                             <p class="m-0" v-if="checkarray()">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
                         </div>
                     </div>
