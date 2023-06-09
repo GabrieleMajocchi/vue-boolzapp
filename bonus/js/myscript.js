@@ -67,13 +67,13 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                 avatar: './img/avatar_4.jpg',
                 visible: true,
                 messages: [
-                    {date: '10/01/2020 15:30:55',
-                    message: 'Lo sai che ha aperto una nuova pizzeria?',
-                    status: 'sent'},
-                    {date: '10/01/2020 15:50:00',
-                    message: 'Si, ma preferirei andare al cinema',
-                    status: 'received'}
-                    ],
+                        {date: '10/01/2020 15:30:55',
+                        message: 'Lo sai che ha aperto una nuova pizzeria?',
+                        status: 'sent'},
+                        {date: '10/01/2020 15:50:00',
+                        message: 'Si, ma preferirei andare al cinema',
+                        status: 'received'}
+                    ]
                 },
                 {name: 'Alessandro L.',
                 avatar: './img/avatar_5.jpg',
@@ -263,9 +263,9 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
 
         // ---Function to delete all the messages from chat---
         deleteMessages(){
-            // for (let i = 0; i < this.contacts.length; i++) {
-            //     this.contacts[this.activeChat].messages.splice(i, 1);
-            // }
+            for (let i = 0; i < this.contacts.length; i++) {
+                this.contacts[this.activeChat].messages.splice(i, 1);
+            }
         },
 
         // ---Function to show a loader for 1s when page is loaded---
@@ -309,6 +309,20 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                                     status: 'sent'}
                                 ]});
             this.contacts[(this.contacts.length - 1)].messages.push({date: this.currentdate(), message: this.randomReply(), status: 'received'});
+            this.activeChat = this.contacts.length - 1;
+            this.blank = false;
         },
+
+        // ---Function to check if the array have all the elements---
+        checkarray(){
+            let isthere;
+            if(( this.contacts[this.activeChat].messages.length) === 0){
+                isthere = false;
+            }else{
+                isthere = true;
+            }
+            return isthere;
+        },
+
     },
 }).mount ("#app")

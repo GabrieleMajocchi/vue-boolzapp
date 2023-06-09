@@ -232,7 +232,7 @@ p.time{
 }
 
 
-.chat div{
+.chat div div{
     width: 300px;
     padding: 12px 15px;
     margin: 10px 100px;
@@ -285,7 +285,7 @@ div.activeuser{
     display: none;
 }
 
-.chat div:hover i{
+.chat div div:hover i{
     display: block;
 }
 

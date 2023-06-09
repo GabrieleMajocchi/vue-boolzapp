@@ -43,7 +43,7 @@
                             <img src="img/moon.png" alt="" class="moon">
                         </label>
 
-                        <i class="fa-solid fa-circle-notch"></i>
+                        <i class="fa-solid fa-circle-notch" @click="checkarray"></i>
                         <i class="fa-solid fa-comment-medical" @click="newChat()"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
@@ -73,10 +73,10 @@
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
                                 <div class="activeuserinfo mt-1">
                                     <h5 class="m-0">{{chat.name}}</h5>
-                                    <p class="m-0 text-secondary text-opacity-50">Ultimo messaggio: {{chat.messages[chat.messages.length - 1].message}}</p>
+                                    <p class="m-0 text-secondary text-opacity-50" v-if="checkarray()">Ultimo messaggio: {{chat.messages[chat.messages.length - 1].message}}</p>
                                 </div>
                             </div>
-                            <p class="time text-secondary text-opacity-50 me-3 mt-1">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
+                            <p class="time text-secondary text-opacity-50 me-3 mt-1" v-if="checkarray()">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
                         </div>
                     </div>
 
@@ -91,8 +91,8 @@
                     <div class="activeuser d-flex">
                         <img :src="contacts[activeChat].avatar" alt="" class="avatar">
                         <div class="activeuserinfo my-auto">
-                            <h5 class="m-0">{{contacts[activeChat].name}}</h5>
-                            <p class="m-0">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
+                            <h5 class="m-0" v-if="checkarray()">{{contacts[activeChat].name}}</h5>
+                            <p class="m-0" v-if="checkarray()">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
                         </div>
                     </div>
                     <div class="rightuser my-auto me-3">
@@ -106,16 +106,18 @@
                     </div>
                 </div>
                 <!-- ---Chat with messages section--- -->
-                <div class="chat d-flex flex-column overflow-auto">
+                <div class="chat">
                     <!-- ---Create every message based on the active chat array content--- -->
-                    <div v-for="message in contacts[activeChat].messages" :class="message.status">
-                        <span>{{message.message}}</span>
-                        <span class="msgtime text-secondary text-opacity-50">{{whatTime(message.date)}}</span>
-                        <i class="fa-solid fa-chevron-down dropdown-toggle m-0" type="button" data-bs-toggle="dropdown"></i>
-                        <ul class="dropdown-menu dropdown-menu-end py-0">
-                            <li><a class="dropdown-item" href="#">Message info</a></li>
-                            <li><a class="dropdown-item" href="#" @click="deleteMsg(message)">Delete message</a></li>
-                        </ul>
+                    <div class="d-flex flex-column overflow-auto" v-if="checkarray()">
+                        <div v-for="message in contacts[activeChat].messages" :class="message.status">
+                            <span>{{message.message}}</span>
+                            <span class="msgtime text-secondary text-opacity-50">{{whatTime(message.date)}}</span>
+                            <i class="fa-solid fa-chevron-down dropdown-toggle m-0" type="button" data-bs-toggle="dropdown"></i>
+                            <ul class="dropdown-menu dropdown-menu-end py-0">
+                                <li><a class="dropdown-item" href="#">Message info</a></li>
+                                <li><a class="dropdown-item" href="#" @click="deleteMsg(message)">Delete message</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- ---Send text and emoji section--- -->
