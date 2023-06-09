@@ -263,9 +263,8 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
 
         // ---Function to delete all the messages from chat---
         deleteMessages(){
-            for (let i = 0; i < this.contacts.length; i++) {
-                this.contacts[this.activeChat].messages.splice(i, 1);
-            }
+            let howmany = this.contacts[this.activeChat].messages.length;
+            this.contacts[this.activeChat].messages.splice(0, howmany);
         },
 
         // ---Function to show a loader for 1s when page is loaded---
@@ -317,6 +316,16 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         checkarray(){
             let isthere;
             if(( this.contacts[this.activeChat].messages.length) === 0){
+                isthere = false;
+            }else{
+                isthere = true;
+            }
+            return isthere;
+        },
+
+        checkarraysingle(index){
+            let isthere;
+            if(( this.contacts[index].messages.length) === 0){
                 isthere = false;
             }else{
                 isthere = true;
