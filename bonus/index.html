@@ -106,9 +106,9 @@
                     </div>
                 </div>
                 <!-- ---Chat with messages section--- -->
-                <div class="chat">
+                <div class="chat overflow-auto">
                     <!-- ---Create every message based on the active chat array content--- -->
-                    <div class="d-flex flex-column overflow-auto" v-if="checkarray()">
+                    <div class="d-flex flex-column" v-if="checkarray()">
                         <div v-for="message in contacts[activeChat].messages" :class="message.status">
                             <span>{{message.message}}</span>
                             <span class="msgtime text-secondary text-opacity-50">{{whatTime(message.date)}}</span>
