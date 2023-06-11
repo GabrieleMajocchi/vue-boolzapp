@@ -95,7 +95,7 @@ You're ready to enjoy the BoolzApp Web!
 - [x] Add possibility to create a new chat
 - [x] Add button to delete all the messages from one chat
 - [x] Add button to delete an entire contact with relative chat/messages
-- [ ] Add emoji list when smiley face get clicked
+- [x] Add emoji list when smiley face get clicked
 - [ ] Add when the contact is replying the 'it's writing..' msg and than after the msg get sent 'last seen online'
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
