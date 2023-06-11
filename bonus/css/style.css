@@ -164,7 +164,7 @@ i{
     cursor: pointer;
 }
 
-i.fa-comment-medical:hover, i.dropdown-toggle:hover, i.fa-paper-plane:hover{
+i.fa-comment-medical:hover, i.dropdown-toggle:hover, i.fa-paper-plane:hover, i.fa-xmark:hover, i.fa-face-smile.my-auto:hover{
     color: #00a884;
 }
 
@@ -330,6 +330,7 @@ span.emoji{
     font-size: 20px;
     display: none;
     margin-top: 7px;
+    color: var(--color-iconschat);
 }
 
 span.emoji.visible{  
