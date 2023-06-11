@@ -164,7 +164,7 @@ i{
     cursor: pointer;
 }
 
-i.fa-comment-medical:hover, i.fa-ellipsis-vertical:hover{
+i.fa-comment-medical:hover, i.dropdown-toggle:hover, i.fa-paper-plane:hover{
     color: #00a884;
 }
 
@@ -189,7 +189,7 @@ i.fa-bell-slash{
     background-color: var(--color-sendtext);
 }
 
-i.fa-microphone, i.fa-face-smile, i.fa-paper-plane{
+i.fa-microphone, i.fa-face-smile, i.fa-paper-plane, i.fa-xmark{
     color: var(--color-iconschat);
     font-size: 30px;
 }
@@ -297,6 +297,48 @@ div.activeuser{
     content: none;
 }
 
+i.fa-face-smile{
+    position: relative;
+}
+
+.emojisearch{
+    font-family: sans-serif;
+    font-size: initial;
+    height: 25px;
+}
+
+div.emojibox{
+    position: absolute;
+    height: 350px;
+    width: 330px;
+    background-color: var(--color-sendtext);
+    bottom: 47px;
+    left: -167px;
+    padding: 1rem;
+}
+
+.emojisection{
+    width: 100%;
+    margin: 16px 0 5px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+span.emoji{  
+    height: 23px;
+    width: calc(100% / 10);
+    font-size: 20px;
+    display: none;
+    margin-top: 7px;
+}
+
+span.emoji.visible{  
+    display: block;
+}
+
+i.fa-xmark{
+    padding-top: 5px;
+}
 
 /* ---Darkmode switch--- */
 label#dark-label {

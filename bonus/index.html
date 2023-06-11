@@ -122,8 +122,29 @@
                 </div>
                 <!-- ---Send text and emoji section--- -->
                 <div class="sendtext d-flex justify-content-between">
-                    <i class="fa-regular fa-face-smile my-auto mx-5"></i>
-                    <input type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)" @keyup="sendButton(newMsg)">
+                    <i class="fa-solid fa-xmark mx-5" :class="emojivisible === false ? 'd-none' : ''" @click="emojivisible = false"></i>
+                    <i class="fa-regular fa-face-smile my-auto mx-5" @click="emojivisible = true">
+                        <div class="emojibox d-flex flex-wrap overflow-auto align-content-start" v-if="emojivisible === true">
+                            <input type="text" class="my-auto rounded emojisearch" placeholder="Cerca emoji" v-model="searchEmojiInput" @keyup="searchEmoji()">
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Faccine e persone</div>
+                                <span class="emoji" v-for="emoji in emojis.smilyAndPeople" :class="emoji.visible === true ? 'visible' : ''" @click="addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Animali e Natura</div>
+                                <span class="emoji" v-for="emoji in emojis.animalsAndNature" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Cibo e Bevande</div>
+                                <span class="emoji" v-for="emoji in emojis.foodAndDrink" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Attività</div>
+                                <span class="emoji" v-for="emoji in emojis.activity" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Viaggi e Luoghi</div>
+                                <span class="emoji" v-for="emoji in emojis.travelAndPlaces" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Oggetti</div>
+                                <span class="emoji" v-for="emoji in emojis.objects" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Simboli</div>
+                                <span class="emoji" v-for="emoji in emojis.symbols" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                            <div class="emojisection" v-if="searchEmojiInput === ''">Bandiere</div>
+                                <span class="emoji" v-for="emoji in emojis.flags" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
+                        </div>
+                    </i>
+                    <input id="inputMsg" type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)" @keyup="sendButton(newMsg)">
                     <i class="fa-solid fa-paper-plane my-auto mx-5" @click="answerAI(newMsg, activeChat)"></i>
                     <i class="fa-solid fa-microphone my-auto mx-5"></i>
                 </div>
