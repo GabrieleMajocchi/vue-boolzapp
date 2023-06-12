@@ -38,7 +38,7 @@
                     <div class="my-auto me-3">
                         <!-- ---Darkmode switch--- -->
                         <input type="checkbox" id="darkmode-toggle"/>
-                        <label for="darkmode-toggle" id="dark-label" class="d-inline-block" @click="darkmode()">
+                        <label for="darkmode-toggle" id="dark-label" class="d-inline-block" @click="darkMode()">
                             <img src="img/sun.png" alt="" class="sun">
                             <img src="img/moon.png" alt="" class="moon">
                         </label>
@@ -73,10 +73,10 @@
                                 <img :src="chat.avatar" alt="chat.name" class="avatar mx-4">
                                 <div class="activeuserinfo mt-1">
                                     <h5 class="m-0">{{chat.name}}</h5>
-                                    <p class="m-0 text-secondary text-opacity-50" v-if="checkarraysingle(index)">Ultimo messaggio: {{chat.messages[chat.messages.length - 1].message}}</p>
+                                    <p class="m-0 text-secondary text-opacity-50" v-if="checkArraySingle(index)">Ultimo messaggio: {{chat.messages[chat.messages.length - 1].message}}</p>
                                 </div>
                             </div>
-                            <p class="time text-secondary text-opacity-50 me-3 mt-1" v-if="checkarraysingle(index)">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
+                            <p class="time text-secondary text-opacity-50 me-3 mt-1" v-if="checkArraySingle(index)">{{whatTime(chat.messages[chat.messages.length - 1].date)}}</p>
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                         <img :src="contacts[activeChat].avatar" alt="" class="avatar">
                         <div class="activeuserinfo my-auto">
                             <h5 class="m-0">{{contacts[activeChat].name}}</h5>
-                            <p class="m-0" v-if="checkarray()">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
+                            <p class="m-0" v-if="checkArray()">Ultimo accesso oggi alle {{whatTime(contacts[activeChat].messages[contacts[activeChat].messages.length - 1].date)}}</p>
                         </div>
                     </div>
                     <div class="rightuser my-auto me-3">
@@ -108,7 +108,7 @@
                 <!-- ---Chat with messages section--- -->
                 <div class="chat overflow-auto">
                     <!-- ---Create every message based on the active chat array content--- -->
-                    <div class="d-flex flex-column" v-if="checkarray()">
+                    <div class="d-flex flex-column" v-if="checkArray()">
                         <div v-for="message in contacts[activeChat].messages" :class="message.status">
                             <span>{{message.message}}</span>
                             <span class="msgtime text-secondary text-opacity-50">{{whatTime(message.date)}}</span>
@@ -144,7 +144,7 @@
                                 <span class="emoji" v-for="emoji in emojis.flags" :class="emoji.visible === true ? 'visible' : ''"  @click=" addEmoji(emoji.emoji), sendButton(this.newMsg), focusMsg()">{{emoji.emoji}}</span>
                         </div>
                     </i>
-                    <input id="inputMsg" type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)" @keyup="sendButton(newMsg)">
+                    <input id="inputmsg" type="text" class="my-auto rounded" placeholder="Scrivi un messaggio" v-model="newMsg" @keyup.enter="answerAI(newMsg, activeChat)" @keyup="sendButton(newMsg)">
                     <i class="fa-solid fa-paper-plane my-auto mx-5" @click="answerAI(newMsg, activeChat)"></i>
                     <i class="fa-solid fa-microphone my-auto mx-5"></i>
                 </div>

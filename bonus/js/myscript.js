@@ -177,18 +177,6 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             return result;
         },
 
-        // ---Function to send the message that user wrote in the chat, will also write a reply---
-        // addMsg(msg, showedchat){
-        //     if(msg ===  undefined || msg === ''){
-        //     // ---Does nothing in case there is no text---
-        //     }else{
-        //     this.contacts[showedchat].messages.push({date: this.currentdate(), message: msg, status: 'sent'});
-        //     // ---Write the reply after 1000ms---
-        //     setTimeout(()=>{this.contacts[showedchat].messages.push({date: this.currentdate(), message: 'Ok', status: 'received'})}, 1000);
-        //     this.newMsg = '';
-        //     }
-        // },
-
         // ---Function to search by name in the chat list---
         searchChat(){
             for(let i = 0; i < this.contacts.length; i++){
@@ -272,7 +260,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             // ---Does nothing in case there is no text or in case there is only spaces---
         }else{
             console.log('Elaboro una risposta..');
-            this.contacts[showedchat].messages.push({date: this.currentdate(), message: msg, status: 'sent'});
+            this.contacts[showedchat].messages.push({date: this.currentDate(), message: msg, status: 'sent'});
             const chatbox = document.querySelector('.chat');
             chatbox.scrollTop = chatbox.scrollHeight;
             const microphone = document.querySelector('.fa-microphone');
@@ -309,12 +297,12 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
             const data = await response.json();
             if(data.choices === undefined){
                 console.log(`La tua key non è valida/corretta. Openai non è in grado di generare una risposta al tuo messaggio. Verrà data la risposta standard`);
-                setTimeout(()=>{this.contacts[showedchat].messages.push({date: this.currentdate(), message: this.randomReply(), status: 'received'})}, 1000);
+                setTimeout(()=>{this.contacts[showedchat].messages.push({date: this.currentDate(), message: this.randomReply(), status: 'received'})}, 1000);
                 setTimeout(()=>{chatbox.scrollTop = chatbox.scrollHeight;}, 1000);
             }else{
             const chatResponse = data.choices[0].message.content;
             console.log(chatResponse)
-            this.contacts[showedchat].messages.push({date: this.currentdate(), message: chatResponse, status: 'received'});
+            this.contacts[showedchat].messages.push({date: this.currentDate(), message: chatResponse, status: 'received'});
             chatbox.scrollTop = chatbox.scrollHeight;
             }
         }},
@@ -361,7 +349,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         },
 
         // ---Function to toggle darkmode---
-        darkmode(){
+        darkMode(){
             this.isdark = !this.isdark;
             if (this.isdark === true) {
                 document.documentElement.classList.remove("light")
@@ -375,7 +363,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         },
 
         // ---Function to get the current date---
-        currentdate(){
+        currentDate(){
             let currentdate = new Date();
             // ---Write the date in the same form as the array---
             currentdate = currentdate.getDate()+'/'+currentdate.getMonth()+'/'+currentdate.getFullYear()+' '+(('0'+currentdate.getHours()).slice(-2))+':'+(('0'+currentdate.getMinutes()).slice(-2))+':'+currentdate.getSeconds()
@@ -395,7 +383,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         },
 
         // ---Function to check if the active chat have messages in it---
-        checkarray(){
+        checkArray(){
             let isthere;
             if(( this.contacts[this.activeChat].messages.length) === 0){
                 isthere = false;
@@ -406,7 +394,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
         },
 
         // ---Function to check if the chat have messages in it---
-        checkarraysingle(index){
+        checkArraySingle(index){
             let isthere;
             if(( this.contacts[index].messages.length) === 0){
                 isthere = false;
@@ -423,7 +411,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
 
         // ---Focus on the input to send messages---
         focusMsg(){
-            let focus = document.getElementById('inputMsg')
+            let focus = document.getElementById('inputmsg')
             focus.focus()
         },
     },
