@@ -286,7 +286,7 @@ Nel caso non ti importasse premi il pulsante 'OK' per proseguire col normale fun
                     messages: [
                         {
                             role:"user",
-                            content: `Rispondi al messaggio: ${msg}. Come se fossi ${whoistexting}, un amico/a di chi sta scrivendo la domanda. La risposta dev'essere di massimo 200 caratteri`,
+                            content: `Rispondi al messaggio: ${msg}, mettendoti nei panni di ${whoistexting}, un amico della persona cha ha fatto la domanda. La risposta dev'essere di massimo 200 caratteri`,
                         }
                     ],
                     temperature: temperature,
