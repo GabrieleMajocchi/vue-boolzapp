@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="">
-    <img src="img/logo.png" alt="Logo" width="80" height="80">
+    <img src="img/logo.png" alt="Logo" width="120" height="80">
   </a>
 
   <h3 align="center">BoolzApp Web</h3>
@@ -46,8 +46,9 @@ BoolzApp Web App, an amazing imitation of a webapp of a instant messaging servic
 
 ### Built With:
 
-* [![Vue][Vue.js]][Vue-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
+* ![Vue.Js](https://img.shields.io/badge/Vue.js-4FC08D.svg?style=for-the-badge&labelColor=black&logo=vuedotjs&logoColor=4FC08D)
+* ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&labelColor=black&logo=Bootstrap&logoColor=7952B3)
+* ![OpenAI](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&labelColor=black&logo=OpenAI&logoColor=white)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,17 +97,16 @@ You're ready to enjoy the BoolzApp Web!
 - [x] Add button to delete all the messages from one chat
 - [x] Add button to delete an entire contact with relative chat/messages
 - [x] Add emoji list when smiley face get clicked
-- [ ] Add when the contact is replying the 'it's writing..' msg and than after the msg get sent 'last seen online'
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 
-## Contact
-
-Gabriele Majocchi - gabriele.majocchi@gmail.com
-
+## 📧 Contact me:
+[![Gmail](https://img.shields.io/badge/Gmail-EA4335.svg?style=plastic&logo=Gmail&logoColor=white)](mailto:gabriele.majocchi@gmail.com)
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=plastic&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/gabriele-majocchi-64185127a/)
+</br>
 Project Link: [Boolzapp Web](https://github.com/GabrieleMajocchi/vue-boolzapp/tree/main/bonus)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
