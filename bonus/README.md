@@ -1,15 +1,9 @@
-
-<br />
 <div align="center" id="readme-top">
   <a href="">
-    <img src="img/logo.png" alt="Logo" width="120" height="80">
+    <img src="img/logo.png" alt="Logo" width="200" height="120">
   </a>
-
   <h3 align="center">BoolzApp Web</h3>
-
 </div>
-
-
 
 <details>
   <summary>Table of Contents</summary>
@@ -33,36 +27,33 @@
 </details>
 
 
-
 ## About The Project
-
-<img src="img/project.png" alt="Project picture" width="600" height="250">
+<img src="img/project.png" alt="Project picture" width="600" height="250" id="about-the-project">
 
 BoolzApp Web App, an amazing imitation of a webapp of a instant messaging service, where you'll be able to text with your friends, see their msg, swap chats, get reply and many more!
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ### Built With:
+<div id="built-with"></div>
 
 * ![Vue.Js](https://img.shields.io/badge/Vue.js-4FC08D.svg?style=for-the-badge&labelColor=black&logo=vuedotjs&logoColor=4FC08D)
 * ![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3.svg?style=for-the-badge&labelColor=black&logo=Bootstrap&logoColor=7952B3)
 * ![OpenAI](https://img.shields.io/badge/OpenAI-412991.svg?style=for-the-badge&labelColor=black&logo=OpenAI&logoColor=white)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ## Getting Started
+<div id="getting-started"></div>
 
 ### Prerequisites
+<div id="prerequisites"></div>
 
 Working browser like chrome,firefox,safari with a 1080p display at least for proper visualization, not ment to be seen on mobile
 <br>
 
-
 ### Usage
+<div id="usage"></div>
 
 To view the project and experience it, download the repository, unzip it and open the index.html
 
@@ -77,12 +68,11 @@ In case you want to get a Key the procedure to get it the following:
       4. Copy it and paste it on the prompt that open everytime you refresh the index.html in your browser
 
 You're ready to enjoy the BoolzApp Web!
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
 ## Roadmap
+<div id="roadmap"></div>
 
 - [x] Add response to the sent message made with Gpt3.5-turbo
 - [x] Add improved request to AI so it reply as the person you're sending the message to would
@@ -97,22 +87,14 @@ You're ready to enjoy the BoolzApp Web!
 - [x] Add button to delete all the messages from one chat
 - [x] Add button to delete an entire contact with relative chat/messages
 - [x] Add emoji list when smiley face get clicked
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-
-
 ## 📧 Contact me:
+<div id="contact"></div>
+
 [![Gmail](https://img.shields.io/badge/Gmail-EA4335.svg?style=plastic&logo=Gmail&logoColor=white)](mailto:gabriele.majocchi@gmail.com)
 [![Linkedin](https://img.shields.io/badge/LinkedIn-0A66C2.svg?style=plastic&logo=LinkedIn&logoColor=white)](https://www.linkedin.com/in/gabriele-majocchi-64185127a/)
 </br>
 Project Link: [Boolzapp Web](https://github.com/GabrieleMajocchi/vue-boolzapp/tree/main/bonus)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
